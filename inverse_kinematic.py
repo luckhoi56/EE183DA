@@ -26,7 +26,7 @@ def IK(x_d):
     q = q_0
     x = x_0
     dx= x_d - x
-    while (numpy.linalg.norm(dx) > 0.001):
+    while (numpy.linalg.norm(dx) > 0.01):
         t1 = q[0]
         t2 = q [1]
         t3 = q [2]
@@ -42,8 +42,12 @@ def IK(x_d):
 
     return (q % (2* numpy.pi))
 
-temp =IK(numpy.matrix([[23.29],[-10.5],[0.964]]))
-print (temp)
+A =IK(numpy.matrix([[20],[0],[-30]]))
+B =IK(numpy.matrix([[35.3553379],[0],[-7.07107359]]))
+C =IK(numpy.matrix([[29.99992654],[0],[20.0001102]]))
 
+print (A)
+print (B)
+print (C)
 
 

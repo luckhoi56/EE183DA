@@ -12,6 +12,10 @@ from sympy import pi
 import numpy
 from sympy import Matrix
 from T_matrix import T_matrix
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+#import matplotlib as plt
+
 def FK (t1, t2, t3, t4):
     m_a1 = 0
     m_a2 = pi/2
@@ -54,5 +58,23 @@ def FK (t1, t2, t3, t4):
     ee = ee[0:-1]
 
     return  ee
+A = (FK (0, 0, 0, 0))
+B = (FK (0, 0.785398, 0, 0))
+C = (FK (0, 1.5708, 0, 0))
 
-print (FK (2.02, 4.45, 4.47, 3.71))
+print (A)
+print (B)
+print (C)
+
+fig = plt.figure()
+ax = Axes3D(fig)
+plt.xlabel('x')
+plt.ylabel('y')
+ax.set_xlabel('X label')
+ax.set_ylabel('Y label')
+ax.set_zlabel('Z label')
+ax.scatter(A[0],A[1],A[2], color ='blue' )
+ax.scatter(B[0],B[1],B[2], color ='orange' )
+ax.scatter(C[0],C[1],C[2], color ='red')
+
+plt.show()
